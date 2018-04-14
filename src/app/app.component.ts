@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 
 import { InitializeGridDataService } from './services/initialize-grid-data.service';
 
+import { Cell } from './interfaces/cell';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -37,8 +39,4 @@ export class AppComponent {
 
 }
 
-interface Cell {
-  temperature:Number;
-  lasttemp:Number;
-  selected:boolean;
-}
+
