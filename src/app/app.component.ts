@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { InitializeGridDataService } from './services/initialize-grid-data.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,7 +18,7 @@ export class AppComponent {
   totalHeat:number = 0;
   cellArrays:Cell[][];
 
-  constructor(){
+  constructor(private initializeGridDataService:InitializeGridDataService){
     
   }
 
@@ -28,7 +30,8 @@ export class AppComponent {
         grid[i] = new Array(size + 1);
     }
 
-
+    grid = this.initializeGridDataService.initializeGridData(this.gridSize);
+    this.cellArrays = grid;
   }
 
 

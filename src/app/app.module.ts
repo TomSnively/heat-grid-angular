@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { InputsComponent } from './components/inputs/inputs.component';
@@ -10,6 +9,7 @@ import { RowComponent } from './components/row/row.component';
 import { CellComponent } from './components/cell/cell.component';
 import { TotalheatComponent } from './components/totalheat/totalheat.component';
 
+import { InitializeGridDataService } from './services/initialize-grid-data.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { TotalheatComponent } from './components/totalheat/totalheat.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [InitializeGridDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
