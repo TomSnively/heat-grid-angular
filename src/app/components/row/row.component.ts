@@ -8,10 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class RowComponent implements OnInit {
 
   @Input() rowNumber: number;
-
+  @Input() gridSize: number;
+  columns: number[];
+  
   constructor() { }
 
   ngOnInit() {
+    console.log('gridSize', this.gridSize);
+    this.columns = Array(this.gridSize).fill(0).map((x,i)=>i+1);
+ 
   }
 
 }

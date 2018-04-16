@@ -1,1 +1,7 @@
-<div class="row">r{{rowNumber}}<app-cell></app-cell></div>
+<div class="row">
+  <app-cell  *ngFor='let column of columns; let i = index' 
+    [gridSize]="gridSize" 
+    [rowNumber]="rowNumber" 
+    [columnNumber]="column"  
+  ></app-cell>
+</div>
