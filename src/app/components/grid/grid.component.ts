@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-grid',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GridComponent implements OnInit {
 
-  constructor() { }
+  @Input() gridSize: number;
+  rows: number[];
+
+  constructor() { 
+    
+  }
 
   ngOnInit() {
+    console.log('gridSize', this.gridSize);
+    this.rows = Array(this.gridSize).fill(0).map((x,i)=>i+1);
+    
   }
 
 }

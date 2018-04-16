@@ -1,4 +1,7 @@
-<p>
+<div id="grid">
   This is the grid. <br />
-  <app-row></app-row>
-</p>
+  Grid Size is {{gridSize}} <br />
+
+  <app-row  *ngFor='let row of rows; let i = index'  [rowNumber]="row"></app-row>
+ 
+</div>
