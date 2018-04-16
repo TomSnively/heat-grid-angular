@@ -10,6 +10,7 @@ import { Cell } from '../../interfaces/cell';
 export class GridComponent implements OnInit {
 
   @Input() gridSize: number;
+  @Input() maxHeat: number;
   @Input() cellArrays: Cell[][];
 
   rows: number[];

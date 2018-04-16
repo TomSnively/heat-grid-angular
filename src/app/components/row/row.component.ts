@@ -11,6 +11,7 @@ export class RowComponent implements OnInit {
 
   @Input() rowNumber: number;
   @Input() gridSize: number;
+  @Input() maxHeat: number;
   @Input() cellArrays: Cell[][];
   cells: number[];
   
