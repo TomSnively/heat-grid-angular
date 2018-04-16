@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+import { Cell } from '../../interfaces/cell';
+
 @Component({
   selector: 'app-grid',
   templateUrl: './grid.component.html',
@@ -8,7 +10,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class GridComponent implements OnInit {
 
   @Input() gridSize: number;
-  
+  @Input() cellArrays: Cell[][];
+
   rows: number[];
 
   constructor() { 
