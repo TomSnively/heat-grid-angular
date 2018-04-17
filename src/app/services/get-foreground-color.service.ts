@@ -10,6 +10,6 @@ export class GetForegroundColorService {
     let group = Math.floor((heat / maxHeat) * 2);
     //console.log('temp, maxHeat', heat, maxHeat);
     return `textColor${group}`;
-}
+  }
 
 }

@@ -10,6 +10,6 @@ export class GetBackgroundColorService {
     let group = Math.floor((heat / maxHeat) * 12) + 1;
     //console.log('temp, maxHeat', heat, maxHeat);
     return `heatColor${group}`;
-}
+  }
 
 }

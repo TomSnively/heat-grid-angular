@@ -23,15 +23,16 @@ export class CellComponent implements OnInit {
   textColorStyle: string;
 
   constructor(
-    private getBackgroundColorService: GetBackgroundColorService,
-    private getForegroundColorService: GetForegroundColorService) {
-  }
+    private getBackgroundColorService:GetBackgroundColorService,
+    private getForegroundColorService:GetForegroundColorService
+  ) { } 
+
 
   ngOnInit() {
     this.cell = this.cellArrays[this.rowNumber][this.cellNumber];
     this.borderStyle = this.cell.selected ? 'redBorder' : 'blackBorder';
-    //this.heatColorStyle = this.getBackgroundColorService.getBackgroundColor(this.cell.temperature, this.maxHeat);
-    //this.textColorStyle = this.getForegroundColorService.getForegroundColor(this.cell.temperature, this.maxHeat);
+    this.heatColorStyle = this.getBackgroundColorService.getBackgroundColor(this.cell.temperature, this.maxHeat);
+    this.textColorStyle = this.getForegroundColorService.getForegroundColor(this.cell.temperature, this.maxHeat);
   }
 
 }

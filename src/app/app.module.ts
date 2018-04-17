@@ -10,6 +10,8 @@ import { CellComponent } from './components/cell/cell.component';
 import { TotalheatComponent } from './components/totalheat/totalheat.component';
 
 import { InitializeGridDataService } from './services/initialize-grid-data.service';
+import { GetBackgroundColorService } from './services/get-background-color.service';
+import { GetForegroundColorService } from './services/get-foreground-color.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,11 @@ import { InitializeGridDataService } from './services/initialize-grid-data.servi
   imports: [
     BrowserModule
   ],
-  providers: [InitializeGridDataService],
+  providers: [
+    InitializeGridDataService,
+    GetBackgroundColorService,
+    GetForegroundColorService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
