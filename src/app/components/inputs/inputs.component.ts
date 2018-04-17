@@ -12,4 +12,8 @@ export class InputsComponent implements OnInit {
   ngOnInit() {
   }
 
+  sizeChecked(size){
+    console.log('size checked', size);
+  }
+
 }
