@@ -1,4 +1,4 @@
-import { Component, AfterContentChecked } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { InitializeGridDataService } from './services/initialize-grid-data.service';
 import { SizeCheckedService } from './services/size-checked.service';
@@ -38,12 +38,6 @@ export class AppComponent {
   }
 
   ngOnInit(){
-    this.cellClickedService.currentMessage.subscribe(function (cellLocation) {
-      console.log('ngOnInit inside subscribe function', cellLocation);
-      this.cellLocation = cellLocation;
-      console.log('this.cellLocation = ', this.cellLocation);
-    });
-
     let size = this.gridSize;
 
     let grid = new Array(size + 1);
@@ -55,18 +49,10 @@ export class AppComponent {
     this.rowsArray = this.fillArray(this.gridSize);
     this.columnsArray = this.fillArray(this.gridSize);
     this.cellArrays = grid;
-  }
 
-  ngAfterContentChecked(){
-    console.log('ngAfterContentChecked', this.cellLocation);
-    console.log('this.cellLocation = ', this.cellLocation);
-    
-    if (this.cellLocation !== undefined){
-      console.log('about to change', this.cellArrays[this.cellLocation.row][this.cellLocation.cell]);
-      this.cellArrays[this.cellLocation.row][this.cellLocation.cell].selected = !this.cellArrays[this.cellLocation.row][this.cellLocation.cell].selected;
-    }
-  
-    
+    this.cellClickedService.currentCellArrays.subscribe(function (cellArrays) {
+      this.cellArrays = cellArrays;
+    });
   }
 
   sizeChanged($event) {

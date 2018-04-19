@@ -32,7 +32,7 @@ export class CellComponent implements OnInit {
   ) { } 
 
   ngOnInit() {
-    this.cellClickedService.currentMessage.subscribe(cellLocation => this.cellLocation = cellLocation)
+    //this.cellClickedService.currentMessage.subscribe(cellArrays => this.cellArrays = cellArrays)
 
     this.Math = Math;
   }
@@ -45,11 +45,9 @@ export class CellComponent implements OnInit {
   }
 
   cellSelected(){
-    console.log('cell clicked', this.rowNumber, this.cellNumber);
-    this.cellClickedService.cellClicked({
-       row: this.rowNumber,
-       cell: this.cellNumber
-    });
+    let grid = this.cellArrays;
+    grid[this.rowNumber][this.cellNumber].selected = !grid[this.rowNumber][this.cellNumber].selected;
+    this.cellClickedService.cellClicked(grid);
   }
 
 }
