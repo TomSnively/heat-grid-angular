@@ -13,6 +13,8 @@ import { Cell } from './interfaces/cell';
 export class AppComponent {
   // Initial state
   gridSize:number = 11;
+  rowsArray: number[];
+  columnsArray: number[];
   heatIncrease:number = 1;
   intervalSpeed:number = 5;
   maxHeat:number = 31;
@@ -26,6 +28,11 @@ export class AppComponent {
     private sizeCheckedService:SizeCheckedService
   ){ }
 
+  fillArray(gridSize){
+    console.log('fillArray ran', gridSize);
+    return Array(this.gridSize).fill(0).map((x,i)=>i+1);
+  }
+
   ngOnInit(){
     let size = this.gridSize;
 
@@ -35,6 +42,8 @@ export class AppComponent {
     }
 
     grid = this.initializeGridDataService.initializeGridData(this.gridSize);
+    this.rowsArray = this.fillArray(this.gridSize);
+    this.columnsArray = this.fillArray(this.gridSize);
     this.cellArrays = grid;
   }
 
@@ -45,8 +54,8 @@ export class AppComponent {
     let dataObject = this.sizeCheckedService.sizeChecked(this.gridSize);
     this.maxHeat = dataObject.maxHeat;
     this.cellArrays = dataObject.cellArrays;
-    //console.log('maxHeat', this.maxHeat);
-    
+    this.rowsArray = this.fillArray(this.gridSize);
+    this.columnsArray = this.fillArray(this.gridSize);
   }
 
 }

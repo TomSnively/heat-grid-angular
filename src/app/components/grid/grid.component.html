@@ -2,9 +2,10 @@
   This is the grid. <br />
   Grid Size is {{gridSize}} <br />
 
-  <app-row  *ngFor='let row of rows; let i = index' 
+  <app-row  *ngFor='let row of rowsArray; let i = index' 
     [cellArrays]="cellArrays"
     [gridSize]="gridSize" 
+    [columnsArray]="columnsArray"
     [maxHeat]="maxHeat"
     [rowNumber]="row"
   ></app-row>

@@ -13,13 +13,13 @@ export class RowComponent implements OnInit {
   @Input() gridSize: number;
   @Input() maxHeat: number;
   @Input() cellArrays: Cell[][];
-  cells: number[];
+  @Input() columnsArray: number[];
   
   constructor() { }
 
   ngOnInit() {
     console.log('gridSize', this.gridSize);
-    this.cells = Array(this.gridSize).fill(0).map((x,i)=>i+1);
+    //this.columnsArray = Array(this.gridSize).fill(0).map((x,i)=>i+1);
  
   }
 

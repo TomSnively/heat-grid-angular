@@ -10,10 +10,10 @@ import { Cell } from '../../interfaces/cell';
 export class GridComponent implements OnInit {
 
   @Input() gridSize: number;
+  @Input() rowsArray: number[];
+  @Input() columnsArray: number[];
   @Input() maxHeat: number;
   @Input() cellArrays: Cell[][];
-
-  rows: number[];
 
   constructor() { 
     
@@ -21,7 +21,6 @@ export class GridComponent implements OnInit {
 
   ngOnInit() {
     console.log('grid ngOnInit - gridSize', this.gridSize);
-    this.rows = Array(this.gridSize).fill(0).map((x,i)=>i+1);
     
   }
 
