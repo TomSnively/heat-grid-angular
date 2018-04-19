@@ -24,7 +24,7 @@ export class AppComponent {
   setTimeoutId:number = null;
   totalHeat:number = 0;
   cellArrays:Cell[][];
-  cellLocation:any;
+  currentCellArrays:any;
 
   constructor(
     private initializeGridDataService:InitializeGridDataService,
