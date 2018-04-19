@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { InitializeGridDataService } from './services/initialize-grid-data.service';
 import { SizeCheckedService } from './services/size-checked.service';
+import { HeatIntervalService } from './services/heat-interval.service';
 
 import { Cell } from './interfaces/cell';
 
@@ -25,7 +26,8 @@ export class AppComponent {
 
   constructor(
     private initializeGridDataService:InitializeGridDataService,
-    private sizeCheckedService:SizeCheckedService
+    private sizeCheckedService:SizeCheckedService,
+    private heatIntervalService:HeatIntervalService
   ){ }
 
   fillArray(gridSize){
@@ -56,6 +58,33 @@ export class AppComponent {
     this.cellArrays = dataObject.cellArrays;
     this.rowsArray = this.fillArray(this.gridSize);
     this.columnsArray = this.fillArray(this.gridSize);
+  }
+
+  setAllSelected($event){
+    console.log('setAllSelected ran', $event);
+
+    let size = this.gridSize;
+    let grid = this.cellArrays;
+    for (let i=1; i <= size; i++) {
+        for (let j=0; j <= size + 1; j++) {
+            grid[i][j].selected = $event;
+        }
+    }
+
+    this.cellArrays = grid;
+      //console.log(this.cellArrays[3][3]);
+
+      if (!this.timerRunning){
+          console.log('timer is not running, we are starting it now');
+          
+          let dataObject = this.heatIntervalService.heatInterval(this.gridSize, this.cellArrays, this.intervalSpeed, this.heatIncrease);
+          this.cellArrays = dataObject.cellArrays;
+          this.totalHeat = dataObject.totalHeat;
+          this.setTimeoutId = dataObject.setTimeoutId;
+          
+          this.timerRunning = true;
+      }
+  
   }
 
 }

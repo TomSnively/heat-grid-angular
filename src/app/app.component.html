@@ -1,5 +1,8 @@
 <app-header></app-header>
-<app-inputs (gridSizeEvent)="sizeChanged($event)"></app-inputs>
+<app-inputs 
+    (gridSizeEvent)="sizeChanged($event)"
+    (setAllSelectedEvent)="setAllSelected($event)"
+    ></app-inputs>
 <app-grid 
     [gridSize]="gridSize"
     [rowsArray]="rowsArray"

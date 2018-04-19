@@ -13,6 +13,7 @@ import { InitializeGridDataService } from './services/initialize-grid-data.servi
 import { GetBackgroundColorService } from './services/get-background-color.service';
 import { GetForegroundColorService } from './services/get-foreground-color.service';
 import { SizeCheckedService } from './services/size-checked.service';
+import { HeatIntervalService } from './services/heat-interval.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { SizeCheckedService } from './services/size-checked.service';
     InitializeGridDataService,
     GetBackgroundColorService,
     GetForegroundColorService,
-    SizeCheckedService
+    SizeCheckedService,
+    HeatIntervalService
   ],
   bootstrap: [AppComponent]
 })

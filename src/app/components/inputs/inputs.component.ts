@@ -8,6 +8,7 @@ import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 export class InputsComponent implements OnInit {
 
   @Output() gridSizeEvent = new EventEmitter<number>();
+  @Output() setAllSelectedEvent = new EventEmitter<boolean>();
 
   constructor() { }
 
@@ -17,6 +18,20 @@ export class InputsComponent implements OnInit {
   sizeChecked(size){
     console.log('size checked', size);
     this.gridSizeEvent.emit(size);
+  }
+
+  turnAllOn(){
+    console.log('in turnAllOn');
+    this.setAllSelectedEvent.emit(true);
+  }
+
+  turnAllOff(){
+    console.log('in turnAllOff');
+    this.setAllSelectedEvent.emit(false);
+  }
+  
+  speedChanged(){
+
   }
 
 }
