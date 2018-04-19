@@ -16,17 +16,17 @@ export class InputsComponent implements OnInit {
   }
 
   sizeChecked(size){
-    console.log('size checked', size);
+    //console.log('size checked', size);
     this.gridSizeEvent.emit(size);
   }
 
   turnAllOn(){
-    console.log('in turnAllOn');
+    //console.log('in turnAllOn');
     this.setAllSelectedEvent.emit(true);
   }
 
   turnAllOff(){
-    console.log('in turnAllOff');
+    //console.log('in turnAllOff');
     this.setAllSelectedEvent.emit(false);
   }
   

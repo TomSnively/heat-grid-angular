@@ -60,8 +60,6 @@ export class AppComponent {
   }
 
   setAllSelected($event){
-    console.log('setAllSelected ran', $event);
-
     let size = this.gridSize;
     let grid = this.cellArrays;
     for (let i=1; i <= size; i++) {
@@ -76,11 +74,8 @@ export class AppComponent {
       if (!this.timerRunning){
           console.log('timer is not running, we are starting it now');
           this.heatIntervalEvent();
-          //this.timerRunning = true;
-      } else {
-        console.log('timer is already running');
+          this.timerRunning = true;
       }
-  
   }
 
   heatIntervalEvent(){
