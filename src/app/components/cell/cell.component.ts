@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, AfterContentChecked } from '@angular/core';
 
 import { Cell } from '../../interfaces/cell';
 
@@ -28,14 +28,14 @@ export class CellComponent implements OnInit {
     private getForegroundColorService:GetForegroundColorService
   ) { } 
 
-
   ngOnInit() {
     this.Math = Math;
+  }
 
+  ngAfterContentChecked(){
     this.cell = this.cellArrays[this.rowNumber][this.cellNumber];
     this.borderStyle = this.cell.selected ? 'redBorder' : 'blackBorder';
     this.heatColorStyle = this.getBackgroundColorService.getBackgroundColor(this.cell.temperature, this.maxHeat);
     this.textColorStyle = this.getForegroundColorService.getForegroundColor(this.cell.temperature, this.maxHeat);
   }
-
 }
