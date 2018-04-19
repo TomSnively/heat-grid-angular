@@ -1,5 +1,5 @@
 <app-header></app-header>
-<app-inputs></app-inputs>
+<app-inputs (gridSizeEvent)="sizeChanged($event)"></app-inputs>
 <app-grid 
     [gridSize]="gridSize"
     [maxHeat]="maxHeat"

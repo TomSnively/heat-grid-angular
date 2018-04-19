@@ -36,6 +36,11 @@ export class AppComponent {
     this.cellArrays = grid;
   }
 
+  sizeChanged($event) {
+    // This executes when the user changes the gridSize on the Input child component
+    console.log('app: sizeChanged ran', $event);
+    this.gridSize = $event;
+  }
 
 }
 
