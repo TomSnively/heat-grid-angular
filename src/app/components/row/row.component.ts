@@ -18,8 +18,6 @@ export class RowComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('gridSize', this.gridSize);
-    //this.columnsArray = Array(this.gridSize).fill(0).map((x,i)=>i+1);
  
   }
 

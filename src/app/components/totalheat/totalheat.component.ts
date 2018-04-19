@@ -12,7 +12,7 @@ export class TotalheatComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('totalHeat ngOnInit', this.totalHeat);
+
   }
 
 }

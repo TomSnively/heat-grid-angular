@@ -8,8 +8,6 @@ export class InitializeGridDataService {
   constructor() { }
 
   initializeGridData(size){
-    console.log('initializeGridData, size = ', size);
-
     // initialize a 2-dimensional array
     let grid = new Array(size + 1);
     for (let i:number=0; i <= size + 1; i++) {

@@ -31,7 +31,6 @@ export class AppComponent {
   ){ }
 
   fillArray(gridSize){
-    console.log('fillArray ran', gridSize);
     return Array(this.gridSize).fill(0).map((x,i)=>i+1);
   }
 

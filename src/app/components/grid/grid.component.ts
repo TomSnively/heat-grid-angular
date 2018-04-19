@@ -20,7 +20,6 @@ export class GridComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('grid ngOnInit - gridSize', this.gridSize);
     
   }
 
