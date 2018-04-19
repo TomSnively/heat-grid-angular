@@ -76,15 +76,26 @@ export class AppComponent {
 
       if (!this.timerRunning){
           console.log('timer is not running, we are starting it now');
-          
-          let dataObject = this.heatIntervalService.heatInterval(this.gridSize, this.cellArrays, this.intervalSpeed, this.heatIncrease);
-          this.cellArrays = dataObject.cellArrays;
-          this.totalHeat = dataObject.totalHeat;
-          this.setTimeoutId = dataObject.setTimeoutId;
-          
-          this.timerRunning = true;
+          this.heatIntervalEvent();
+          //this.timerRunning = true;
+      } else {
+        console.log('timer is already running');
       }
   
+  }
+
+  heatIntervalEvent(){
+    // Set the time for the next update.
+    let setTimeoutId = window.setTimeout(function(){
+      //console.log('intervalSpeed', this.state.intervalSpeed);
+      this.heatIntervalEvent();
+    }.bind(this), 1000 / this.intervalSpeed);
+
+    let dataObject = this.heatIntervalService.heatInterval(this.gridSize, this.cellArrays, this.intervalSpeed, this.heatIncrease);
+    this.cellArrays = dataObject.cellArrays;
+    //console.log('[3][3]', this.cellArrays[3][3]);
+    this.totalHeat = dataObject.totalHeat;
+    this.setTimeoutId = dataObject.setTimeoutId;
   }
 
 }
