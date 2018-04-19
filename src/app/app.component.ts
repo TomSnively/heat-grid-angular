@@ -38,7 +38,11 @@ export class AppComponent {
   }
 
   ngOnInit(){
-    this.cellClickedService.currentMessage.subscribe(cellLocation => this.cellLocation = cellLocation);
+    this.cellClickedService.currentMessage.subscribe(function (cellLocation) {
+      console.log('ngOnInit inside subscribe function', cellLocation);
+      this.cellLocation = cellLocation;
+      console.log('this.cellLocation = ', this.cellLocation);
+    });
 
     let size = this.gridSize;
 
@@ -54,7 +58,15 @@ export class AppComponent {
   }
 
   ngAfterContentChecked(){
-    //console.log('ngAfterContentChecked', this.cellLocation);
+    console.log('ngAfterContentChecked', this.cellLocation);
+    console.log('this.cellLocation = ', this.cellLocation);
+    
+    if (this.cellLocation !== undefined){
+      console.log('about to change', this.cellArrays[this.cellLocation.row][this.cellLocation.cell]);
+      this.cellArrays[this.cellLocation.row][this.cellLocation.cell].selected = !this.cellArrays[this.cellLocation.row][this.cellLocation.cell].selected;
+    }
+  
+    
   }
 
   sizeChanged($event) {
