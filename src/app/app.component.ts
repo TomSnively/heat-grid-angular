@@ -95,7 +95,7 @@ export class AppComponent {
     this.cellArrays = dataObject.cellArrays;
     //console.log('[3][3]', this.cellArrays[3][3]);
     this.totalHeat = dataObject.totalHeat;
-    this.setTimeoutId = dataObject.setTimeoutId;
+    this.setTimeoutId = setTimeoutId;
   }
 
 }
