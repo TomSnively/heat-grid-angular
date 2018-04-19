@@ -9,7 +9,8 @@ export class InputsComponent implements OnInit {
 
   @Output() gridSizeEvent = new EventEmitter<number>();
   @Output() setAllSelectedEvent = new EventEmitter<boolean>();
-
+  @Output() speedChangedEvent = new EventEmitter<number>();
+  
   constructor() { }
 
   ngOnInit() {
@@ -30,8 +31,9 @@ export class InputsComponent implements OnInit {
     this.setAllSelectedEvent.emit(false);
   }
   
-  speedChanged(){
-
+  speedChanged($event){
+    //console.log('speedChanged', $event.target.value);
+    this.speedChangedEvent.emit($event.target.value);
   }
 
 }

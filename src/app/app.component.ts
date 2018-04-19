@@ -78,6 +78,10 @@ export class AppComponent {
       }
   }
 
+  speedChanged(speed){
+    this.intervalSpeed = speed;
+  }
+
   heatIntervalEvent(){
     // Set the time for the next update.
     let setTimeoutId = window.setTimeout(function(){
