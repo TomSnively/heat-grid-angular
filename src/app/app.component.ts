@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterContentChecked } from '@angular/core';
 
 import { InitializeGridDataService } from './services/initialize-grid-data.service';
 import { SizeCheckedService } from './services/size-checked.service';
@@ -53,6 +53,14 @@ export class AppComponent {
     this.cellClickedService.currentCellArrays.subscribe(function (cellArrays) {
       this.cellArrays = cellArrays;
     });
+  }
+
+  ngAfterContentChecked(){
+    if (!this.timerRunning){
+      console.log('timer is not running, we are starting it now');
+      this.heatIntervalEvent();
+      this.timerRunning = true;
+    }
   }
 
   sizeChanged($event) {
