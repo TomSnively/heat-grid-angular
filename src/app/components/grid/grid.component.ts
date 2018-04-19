@@ -20,7 +20,7 @@ export class GridComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('gridSize', this.gridSize);
+    console.log('grid ngOnInit - gridSize', this.gridSize);
     this.rows = Array(this.gridSize).fill(0).map((x,i)=>i+1);
     
   }
