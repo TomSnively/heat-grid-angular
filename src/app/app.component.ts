@@ -56,6 +56,7 @@ export class AppComponent {
   }
 
   ngAfterContentChecked(){
+    //console.log('ngAfterContentChecked ran');
     if (!this.timerRunning){
       console.log('timer is not running, we are starting it now');
       this.heatIntervalEvent();
@@ -67,7 +68,7 @@ export class AppComponent {
     // This executes when the user changes the gridSize on the Input child component
     console.log('app: sizeChanged ran', $event);
     this.gridSize = $event;
-    let dataObject = this.sizeCheckedService.sizeChecked(this.gridSize);
+    let dataObject = this.sizeCheckedService.sizeChecked(this.gridSize, this.timerRunning, this.setTimeoutId);
     this.maxHeat = dataObject.maxHeat;
     this.cellArrays = dataObject.cellArrays;
     this.rowsArray = this.fillArray(this.gridSize);
