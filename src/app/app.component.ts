@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, AfterContentChecked } from '@angular/core';
 
 import { InitializeGridDataService } from './services/initialize-grid-data.service';
 import { SizeCheckedService } from './services/size-checked.service';
 import { HeatIntervalService } from './services/heat-interval.service';
+import { CellClickedService } from './services/cell-clicked.service';
 
 import { Cell } from './interfaces/cell';
 
@@ -23,11 +24,13 @@ export class AppComponent {
   setTimeoutId:number = null;
   totalHeat:number = 0;
   cellArrays:Cell[][];
+  cellLocation:any;
 
   constructor(
     private initializeGridDataService:InitializeGridDataService,
     private sizeCheckedService:SizeCheckedService,
-    private heatIntervalService:HeatIntervalService
+    private heatIntervalService:HeatIntervalService,
+    private cellClickedService:CellClickedService
   ){ }
 
   fillArray(gridSize){
@@ -35,6 +38,8 @@ export class AppComponent {
   }
 
   ngOnInit(){
+    this.cellClickedService.currentMessage.subscribe(cellLocation => this.cellLocation = cellLocation);
+
     let size = this.gridSize;
 
     let grid = new Array(size + 1);
@@ -46,6 +51,10 @@ export class AppComponent {
     this.rowsArray = this.fillArray(this.gridSize);
     this.columnsArray = this.fillArray(this.gridSize);
     this.cellArrays = grid;
+  }
+
+  ngAfterContentChecked(){
+    //console.log('ngAfterContentChecked', this.cellLocation);
   }
 
   sizeChanged($event) {

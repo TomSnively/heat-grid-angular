@@ -1,1 +1,10 @@
-<div class="cell {{borderStyle}} {{heatColorStyle}} {{textColorStyle}} ">{{Math.round(cell.temperature*10)/10}}</div>
+<div class=
+    "
+        cell 
+        {{borderStyle}} 
+        {{heatColorStyle}} 
+        {{textColorStyle}} 
+    "
+    (click)="cellSelected()"
+    >{{Math.round(cell.temperature*10)/10}}
+</div>

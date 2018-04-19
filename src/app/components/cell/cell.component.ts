@@ -4,6 +4,8 @@ import { Cell } from '../../interfaces/cell';
 
 import { GetBackgroundColorService } from '../../services/get-background-color.service';
 import { GetForegroundColorService } from '../../services/get-foreground-color.service';
+import { CellClickedService } from '../../services/cell-clicked.service';
+
 
 @Component({
   selector: 'app-cell',
@@ -25,10 +27,13 @@ export class CellComponent implements OnInit {
 
   constructor(
     private getBackgroundColorService:GetBackgroundColorService,
-    private getForegroundColorService:GetForegroundColorService
+    private getForegroundColorService:GetForegroundColorService,
+    private cellClickedService:CellClickedService
   ) { } 
 
   ngOnInit() {
+    this.cellClickedService.currentMessage.subscribe(cellLocation => this.cellLocation = cellLocation)
+
     this.Math = Math;
   }
 
@@ -38,4 +43,13 @@ export class CellComponent implements OnInit {
     this.heatColorStyle = this.getBackgroundColorService.getBackgroundColor(this.cell.temperature, this.maxHeat);
     this.textColorStyle = this.getForegroundColorService.getForegroundColor(this.cell.temperature, this.maxHeat);
   }
+
+  cellSelected(){
+    console.log('cell clicked', this.rowNumber, this.cellNumber);
+    this.cellClickedService.cellClicked({
+       row: this.rowNumber,
+       cell: this.cellNumber
+    });
+  }
+
 }

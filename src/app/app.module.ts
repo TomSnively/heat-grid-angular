@@ -14,6 +14,7 @@ import { GetBackgroundColorService } from './services/get-background-color.servi
 import { GetForegroundColorService } from './services/get-foreground-color.service';
 import { SizeCheckedService } from './services/size-checked.service';
 import { HeatIntervalService } from './services/heat-interval.service';
+import { CellClickedService } from './services/cell-clicked.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { HeatIntervalService } from './services/heat-interval.service';
     GetBackgroundColorService,
     GetForegroundColorService,
     SizeCheckedService,
-    HeatIntervalService
+    HeatIntervalService,
+    CellClickedService
   ],
   bootstrap: [AppComponent]
 })
