@@ -1,16 +1,18 @@
-<app-header></app-header>
-<app-inputs 
-    (gridSizeEvent)="sizeChanged($event)"
-    (setAllSelectedEvent)="setAllSelected($event)"
-    (speedChangedEvent)="speedChanged($event)"
-    ></app-inputs>
-<app-grid 
-    [gridSize]="gridSize"
-    [rowsArray]="rowsArray"
-    [columnsArray]="columnsArray"
-    [maxHeat]="maxHeat"
-    [cellArrays]="cellArrays"
-></app-grid>
-<app-totalheat 
-    [totalHeat]="totalHeat"
-></app-totalheat>
+<div class="container">
+    <app-header></app-header>
+    <app-inputs 
+        (gridSizeEvent)="sizeChanged($event)"
+        (setAllSelectedEvent)="setAllSelected($event)"
+        (speedChangedEvent)="speedChanged($event)"
+        ></app-inputs>
+    <app-grid 
+        [gridSize]="gridSize"
+        [rowsArray]="rowsArray"
+        [columnsArray]="columnsArray"
+        [maxHeat]="maxHeat"
+        [cellArrays]="cellArrays"
+    ></app-grid>
+    <app-totalheat 
+        [totalHeat]="totalHeat"
+    ></app-totalheat>
+</div>
