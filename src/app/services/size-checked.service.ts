@@ -8,7 +8,7 @@ export class SizeCheckedService {
   constructor(private initializeGridDataService:InitializeGridDataService) { }
 
   sizeChecked(size, timerRunning, setTimeoutId){
-      console.log('in sizeCheckedService', size);
+      //console.log('in sizeCheckedService', size);
 
       let maxHeat;
       if(size === 17) {
@@ -30,7 +30,7 @@ export class SizeCheckedService {
       let cellArrays = this.initializeGridDataService.initializeGridData(size);
 
       if (timerRunning){
-          console.log('turning off the timer');
+          //console.log('turning off the timer');
           clearTimeout(setTimeoutId);
           timerRunning = false;
       }
