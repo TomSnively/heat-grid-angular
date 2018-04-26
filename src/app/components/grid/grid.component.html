@@ -1,11 +1,9 @@
-<div class="table-responsive">
-  <div id="grid">
-    <app-row  *ngFor='let row of rowsArray; let i = index' 
-      [cellArrays]="cellArrays"
-      [gridSize]="gridSize" 
-      [columnsArray]="columnsArray"
-      [maxHeat]="maxHeat"
-      [rowNumber]="row"
-    ></app-row>
-  </div>
+<div id="grid">
+  <app-row *ngFor='let row of rowsArray; let i = index' 
+    [cellArrays]="cellArrays"
+    [gridSize]="gridSize" 
+    [columnsArray]="columnsArray"
+    [maxHeat]="maxHeat"
+    [rowNumber]="row"
+  ></app-row>
 </div>

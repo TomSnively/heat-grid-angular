@@ -5,13 +5,15 @@
         (setAllSelectedEvent)="setAllSelected($event)"
         (speedChangedEvent)="speedChanged($event)"
         ></app-inputs>
-    <app-grid 
-        [gridSize]="gridSize"
-        [rowsArray]="rowsArray"
-        [columnsArray]="columnsArray"
-        [maxHeat]="maxHeat"
-        [cellArrays]="cellArrays"
-    ></app-grid>
+    <div class="table-responsive">
+        <app-grid
+            [gridSize]="gridSize"
+            [rowsArray]="rowsArray"
+            [columnsArray]="columnsArray"
+            [maxHeat]="maxHeat"
+            [cellArrays]="cellArrays"
+        ></app-grid>
+    </div>
     <app-totalheat 
         [totalHeat]="totalHeat"
     ></app-totalheat>
