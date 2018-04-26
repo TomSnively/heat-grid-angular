@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 
 import { Cell } from '../../interfaces/cell';
 
@@ -8,6 +8,7 @@ import { Cell } from '../../interfaces/cell';
   styleUrls: ['./grid.component.css']
 })
 export class GridComponent implements OnInit {
+  gridSizeStyle: {};
 
   @Input() gridSize: number;
   @Input() rowsArray: number[];
@@ -20,7 +21,18 @@ export class GridComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    this.gridSizeStyle = {
+      'width': '330px',
+      'height': '330px'
+    };
+  }
+
+
+  ngOnChanges() {
+    this.gridSizeStyle = {
+      'width': `${this.gridSize * 30}px`,
+      'height': `${this.gridSize * 30}px`
+    };
   }
 
 }

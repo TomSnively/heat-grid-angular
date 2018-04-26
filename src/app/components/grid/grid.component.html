@@ -1,4 +1,4 @@
-<div id="grid">
+<div id="grid" [ngStyle]="gridSizeStyle">
   <app-row *ngFor='let row of rowsArray; let i = index' 
     [cellArrays]="cellArrays"
     [gridSize]="gridSize" 
